@@ -1,7 +1,7 @@
 FROM php:7.1-alpine
 
 RUN apk update && \
-    apk add git zlib zlib-dev autoconf build-base gcc
+    apk add git rsync zlib zlib-dev autoconf build-base gcc
 
 RUN docker-php-ext-install pdo pdo_mysql opcache zip iconv
 RUN yes | pecl install xdebug \
