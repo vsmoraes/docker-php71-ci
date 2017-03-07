@@ -1,7 +1,7 @@
-FROM php:7.1-alpine
+FROM php:7.1-cli
 
-RUN apk update && \
-    apk add git rsync zlib zlib-dev autoconf build-base gcc
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    apt-get -y install git rsync zlib1g zlib1g-dev autoconf build-essential gcc
 
 RUN docker-php-ext-install pdo pdo_mysql opcache zip iconv
 RUN yes | pecl install xdebug \
